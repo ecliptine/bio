@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    overflow: hidden;
+  }
+  
+  .animated-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #00bfff, #9b4bff);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+    overflow: hidden;
+  }
+  
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-background::before, .animated-background::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animated-background::before {
+    top: 20%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+  
+  .animated-background::after {
+    bottom: 10%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .container {
+    position: relative;
+    max-width: 900px;
+    margin: 100px auto;
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1.5s ease forwards;
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .header h1 {
+    font-size: 3em;
+    font-weight: bold;
+    animation: fadeSlide 2s ease forwards;
+  }
+  
+  .header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    animation: fadeSlide 2s ease forwards 0.5s;
+  }
+  
+  @keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .bio, .contact {
+    margin-top: 30px;
+    animation: fadeInUp 2s ease forwards;
+  }
+  
+  .bio h2, .contact h2 {
+    font-size: 2em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .bio p, .contact p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  
+  .bio .highlight {
+    color: #f0f;
+    font-weight: bold;
+  }
+  
+  .contact a {
+    color: #9b4bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .contact a:hover {
+    color: #00bfff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .container {
+      margin: 20px auto;
+      padding: 20px;
+    }
+  
+    .header h1 {
+      font-size: 2.5em;
+    }
+  
+    .bio h2, .contact h2 {
+      font-size: 1.8em;
+    }
+  }
+  
